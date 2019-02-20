@@ -1,8 +1,7 @@
 # pymulticast
 ues python to send or receive udp multicast
 
-pymulticast -h
-
+'''
 Usage:
   pymulticast receive MCAST_GRP MCAST_PORT [-i <ip>] [(-w <filepath> -t <split_time>)]
   pymulticast -h | --help
@@ -18,3 +17,4 @@ Examples:
   pymulticast receive 239.1.1.1 1234
   pymulticast receive 239.1.1.1 1234 -i 192.168.11.48
   pymulticast receive 239.1.1.1 1234 -i 192.168.11.48 -w /mnt/data/local-disk1/record.ts -t 1800
+'''
