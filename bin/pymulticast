@@ -87,7 +87,7 @@ def quit(signum, frame):
     sys.exit()            
                 
 def main():
-    args = docopt(__doc__, version= "multicast.py 1.0.0")
+    args = docopt(__doc__, version= "multicast.py 1.0.1")
     #通过docopt解析命令参数
     #print(args)
     kwargs = {

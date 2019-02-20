@@ -6,7 +6,7 @@ from setuptools import setup
 
 setup(
     name='pymulticast',
-    version='1.0.0',
+    version='1.0.1',
     url='https://github.com/wangpeng2020/multicast.git',
     license='MIT',
     author='Peng Wang',
