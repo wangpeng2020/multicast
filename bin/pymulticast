@@ -31,7 +31,7 @@ from datetime import datetime
 from datetime import timedelta
 
 
-def multicast_recv(MCAST_GRP , MCAST_PORT, iface=None, filepath=None, split_time=3600):
+def multicast_recv(MCAST_GRP , MCAST_PORT, iface=None, filepath=None, split_time=1800):
     #程序退出
     signal.signal(signal.SIGINT, quit)
     signal.signal(signal.SIGTERM, quit)
@@ -58,7 +58,7 @@ def multicast_recv(MCAST_GRP , MCAST_PORT, iface=None, filepath=None, split_time
         stream = open('{}_{}.ts'.format(os.path.splitext(filepath)[0], start.strftime('%Y%m%d-%H%M%S')),'wb')
     else:
         stream = open('/dev/null', 'wb')
-    split_time = int(split_time) if split_time else 3600
+    split_time = int(split_time) if split_time else 1800
     while True:
         end = datetime.now()
         #超过分片时间后
