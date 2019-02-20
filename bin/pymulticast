@@ -20,6 +20,7 @@ Examples:
   pymulticast receive 239.1.1.1 1234 -i 192.168.11.48
   pymulticast receive 239.1.1.1 1234 -i 192.168.11.48 -w /mnt/data/local-disk1/record.ts -t 1800
 """
+
 import os
 import sys
 import signal
@@ -45,8 +46,9 @@ def multicast_recv(MCAST_GRP , MCAST_PORT, iface=None, filepath=None, split_time
         '4sl' if iface is None else '4s4s',
         socket.inet_aton(MCAST_GRP),
         socket.INADDR_ANY if iface is None else socket.inet_aton(iface))
-    #加入组播    
-    sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
+    #是组播地址则加入组播    
+    if int(MCAST_GRP.split('.')[0]) >= 224:
+        sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
     #设置阻塞模式, 默认是该模式, 接收不到数据的是会一直等待. 如设置为非阻塞模式, 接收不到数据时会报错BlockingIOError    
     sock.setblocking(1)
     #总数据大小
