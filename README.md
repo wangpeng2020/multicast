@@ -1,6 +1,10 @@
 # pymulticast
 ues python to send or receive udp multicast
 
+# install
+`pip install pymulticast`
+
+# hwo to use
 ```
 Usage:
   pymulticast receive MCAST_GRP MCAST_PORT [-i <ip>] [(-w <filepath> -t <split_time>)]
